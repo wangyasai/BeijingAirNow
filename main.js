@@ -497,7 +497,7 @@ function drawYear() {
 
      text("所有实景图片由环保行动者邹毅拍摄", width-marginL, marginT + (2 * 6 + 1) * (barH / 2) + spacing * 6-10);
      text("数据来源：北京市环保局", width-marginL, marginT + (2 * 6 + 1) * (barH / 2) + spacing * 6 +10);
-     text("可视化设计：@亚赛大人", width-marginL, marginT + (2 * 6 + 1) * (barH / 2) + spacing * 6 +30);
+     text("可视化设计：王亚赛", width-marginL, marginT + (2 * 6 + 1) * (barH / 2) + spacing * 6 +30);
 
     imageMode(LEFT);
     image(logo,marginL+100,marginT + (2 * 6 + 1) * (barH / 2) + spacing * 6+10,200, 60);
