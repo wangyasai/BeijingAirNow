@@ -59,14 +59,6 @@ var barW= 2;
 var barH;
 
 var bgcolor = 242;
-var color1 = "#334d81";
-var color2 = "#5071a4";
-var color3 = "#6b9ac7";
-var color4 = "#a1c3d3";
-var color5 = "#b1b3b4";
-var color6 = "#8c9395";
-var color7 = "#697683"; //当天没有数据
-var color8 = "#2d2d2d"; 
 var index = 0;
 
 var x = [];
@@ -133,7 +125,8 @@ function setup(){
     }
 
      marginL = (windowWidth-barW*365)/2;
-    logo = loadImage("img/logo.jpg");
+
+    logo = loadImage("img/logo.png");
     for(var i = 0; i < 366; i++){
          images13[i] = loadImage(data.getString(i,"13img"));
          images14[i] = loadImage(data.getString(i,"14img"));
@@ -205,8 +198,7 @@ function setup(){
 
 function draw(){    
     background(bgcolor);       
-    imageMode(CENTER);
-    image(logo,width/2,marginT+barH*9,400,50);
+   
     drawYear();
     if (button == "a") {
       drawMonth();
@@ -310,6 +302,7 @@ function SkyBar(x, y, value, bfX, afX){
 function showImg(posX){
     for(var j = 0; j<6;j++){
         for(var i = 0; i<yearDays[j]; i++){   
+            imageMode(CENTER);
             if(mouseX >  posX[i] && mouseX <  posX[i]+barW && mouseY > bfPosY[0] && mouseY < bfPosY[0]+ barH && j == 0){
                 image(images13[i],mouseX,bfPosY[0]+barH*0.7+80,120,160);
             }else if( mouseX > posX[i] && mouseX < posX[i]+barW &&mouseY > bfPosY[1] && mouseY < bfPosY[1]+ barH && j == 1){
@@ -485,6 +478,7 @@ function drawMonth() {
             text(months[i],marginL + (barW) * countDay[i]+ ((barW) * days[i]) / 2, marginT - a);
         }  
     }
+
 }
 
 function drawYear() {
@@ -500,6 +494,13 @@ function drawYear() {
             text(2013 + i, marginL - b, marginT + (2 * i + 1) * (barH / 2) + spacing * i);
         }      
     }
+
+     text("所有实景图片由环保行动者邹毅拍摄", width-marginL, marginT + (2 * 6 + 1) * (barH / 2) + spacing * 6-10);
+     text("数据来源：北京市环保局", width-marginL, marginT + (2 * 6 + 1) * (barH / 2) + spacing * 6 +10);
+     text("可视化设计：@亚赛大人", width-marginL, marginT + (2 * 6 + 1) * (barH / 2) + spacing * 6 +30);
+
+    imageMode(LEFT);
+    image(logo,marginL+100,marginT + (2 * 6 + 1) * (barH / 2) + spacing * 6+10,200, 60);
 }
 
 
